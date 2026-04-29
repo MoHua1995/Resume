@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鄭羽紋｜活動企劃統籌作品集</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f0ebe4;
+    --bg2:       #e8e1d9;
+    --bg3:       #ddd6cc;
+    --text:      #3d3530;
+    --text-soft: #6b635c;
+    --text-mute: #9a9089;
+    --sage:      #7a8c7a;
+    --sage-light:#b0bfb0;
+    --rose:      #a07870;
+    --rose-light:#c8a8a0;
+    --warm:      #8a7860;
+    --warm-light:#c0ab90;
+    --border:    rgba(61,53,48,0.12);
+    --card:      rgba(255,255,255,0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg2);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 70% at 75% 40%, rgba(122,140,122,0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 60% at 25% 75%, rgba(160,120,112,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(52px, 6.5vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--text);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-name-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 900;
+    color: var(--rose);
+    display: block;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.55s;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-soft);
+    max-width: 380px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.85s;
+  }
+
+  .stat-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--sage);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text-mute);
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px 80px 80px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--warm-light), transparent);
+    opacity: 0.5;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+
+  .pill {
+    padding: 8px 18px;
+    border: 1px solid rgba(138,120,96,0.3);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--warm);
+    background: rgba(138,120,96,0.08);
+    transition: all 0.3s;
+  }
+
+  .pill:hover {
+    background: rgba(138,120,96,0.18);
+    border-color: var(--warm);
+    color: var(--text);
+  }
+
+  .hero-quote {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-soft);
+    border-left: 2px solid var(--rose);
+    padding-left: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.1s;
+  }
+
+  .hero-quote em {
+    color: var(--text);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.3s;
+    z-index: 1;
+  }
+
+  .scroll-hint span {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  section { position: relative; }
+
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+  }
+
+  .intro-band {
+    background: var(--bg3);
+    color: var(--text);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .intro-title span { color: var(--rose); }
+
+  .intro-body {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-soft);
+  }
+
+  .intro-body strong { color: var(--text); font-weight: 500; }
+
+  .works {
+    padding: 100px 80px;
+    background: var(--bg);
+  }
+
+  .works-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 56px;
+    letter-spacing: -1px;
+    color: var(--text);
+    margin-bottom: 80px;
+  }
+
+  .case {
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 72px;
+    align-items: start;
+    padding-bottom: 100px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .case:last-child { border-bottom: none; margin-bottom: 0; }
+  .case-meta { position: sticky; top: 100px; }
+
+  .case-index {
+    font-family: 'Outfit', sans-serif;
+    font-size: 110px;
+    font-weight: 800;
+    color: rgba(122,140,122,0.12);
+    line-height: 1;
+    margin-bottom: -20px;
+    margin-left: -6px;
+  }
+
+  .case-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  .case-subtitle {
+    font-size: 14px;
+    color: var(--text-mute);
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .case-tag {
+    font-size: 12px;
+    padding: 5px 13px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-soft);
+    background: var(--card);
+  }
+
+  .case-kpis { display: flex; flex-direction: column; gap: 10px; }
+
+  .kpi {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background: rgba(122,140,122,0.08);
+    border-left: 2px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .kpi-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--sage);
+    white-space: nowrap;
+  }
+
+  .kpi-label { font-size: 13px; color: var(--text-soft); line-height: 1.4; }
+
+  .case-section { margin-bottom: 44px; }
+
+  .case-section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .case-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .highlight-card {
+    padding: 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+
+  .highlight-card:hover {
+    background: rgba(122,140,122,0.1);
+    border-color: var(--sage-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(61,53,48,0.08);
+  }
+
+  .highlight-icon { font-size: 24px; margin-bottom: 12px; }
+
+  .highlight-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .highlight-body { font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+
+  .detail-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .detail-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-soft);
+    transition: all 0.2s;
+  }
+
+  .detail-item:hover {
+    background: rgba(122,140,122,0.08);
+    color: var(--text);
+    border-color: var(--sage-light);
+  }
+
+  .detail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rose);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .result-band {
+    padding: 26px 30px;
+    background: linear-gradient(135deg, rgba(122,140,122,0.12), rgba(122,140,122,0.04));
+    border: 1px solid rgba(122,140,122,0.25);
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-soft);
+  }
+
+  .result-band strong { color: var(--sage); font-weight: 600; }
+
+  .skills-section {
+    background: var(--bg2);
+    color: var(--text);
+    padding: 100px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .skill-block {
+    padding: 40px 34px;
+    background: var(--bg3);
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .skill-block:hover { background: var(--sage); }
+  .skill-block:hover .skill-block-title { color: #fff; }
+  .skill-block:hover .skill-block-desc { color: rgba(255,255,255,0.75); }
+
+  .skill-block-icon { font-size: 30px; margin-bottom: 18px; }
+
+  .skill-block-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+    transition: color 0.3s;
+  }
+
+  .skill-block-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-soft);
+    transition: color 0.3s;
+  }
+
+  footer {
+    padding: 60px 80px;
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--rose);
+  }
+
+  .footer-copy { font-size: 13px; color: var(--text-mute); letter-spacing: 1px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1; }
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 32px 40px; }
+    .hero-right { padding: 0 32px 60px; }
+    .hero-right::before { display: none; }
+    .intro-band { grid-template-columns: 1fr; padding: 60px 32px; gap: 32px; }
+    .works { padding: 60px 32px; }
+    .case { grid-template-columns: 1fr; gap: 40px; }
+    .case-meta { position: static; }
+    .highlights { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skills-section { padding: 60px 32px; }
+    footer { flex-direction: column; gap: 16px; padding: 40px 32px; text-align: center; }
+    .works-title { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Portfolio · 作品集 · 2025–2026</div>
+    <div class="hero-name">Yuwun<br>Cheng</div>
+    <span class="hero-name-zh">鄭羽紋</span>
+    <p class="hero-desc">企劃部副主管｜石川傳媒集團<br>從零到落地的全程型活動企劃統籌，<br>擅長在混亂中建立秩序，在限制中創造亮點。</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">300+</div><div class="stat-label">人規模活動</div></div>
+      <div class="stat"><div class="stat-num">10萬</div><div class="stat-label">課程利潤</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">年企劃資歷</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="skill-pills">
+      <span class="pill">活動統籌</span><span class="pill">行銷企劃</span><span class="pill">短影音製作</span>
+      <span class="pill">AI 內容創作</span><span class="pill">跨部門協調</span><span class="pill">危機處理</span>
+      <span class="pill">預算管控</span><span class="pill">文案撰寫</span><span class="pill">場地規劃</span>
+    </div>
+    <div class="hero-quote">「我能想到所有細節，<br><em>所有問題，以及如何更好。</em>」</div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<div class="intro-band">
+  <div>
+    <div class="section-label">About</div>
+    <h2 class="intro-title">企劃<span>×</span>行銷<span>×</span>落地</h2>
+  </div>
+  <p class="intro-body">
+    從醫療、影像到媒體產業，多元歷練讓我建立了跨領域視野。三年媒體資歷中，我在企劃部<strong>獨攬企劃與行銷</strong>，完整統籌 300 人尾牙晚會與首屆主持人培訓課程，從概念發想、預算編列、行銷宣傳、現場執行到結案歸檔，<strong>全程一人主導</strong>。<br><br>
+    我的優勢不只是把事情做完，而是<strong>在別人看不見問題之前，我已經想好解法</strong>。歷年尾牙唯一未加班一次；活動工作人員全員嘉獎——這些成績說明我不只是執行者，而是一個<strong>讓系統運轉更好的人</strong>。
+  </p>
+</div>
+
+<section class="works">
+  <div class="section-label">Selected Works</div>
+  <h2 class="works-title">作品案例</h2>
+
+  <div class="case">
+    <div class="case-meta">
+      <div class="case-index">01</div>
+      <h3 class="case-title">石川傳媒集團<br>年終尾牙晚會<br>【聖誕搖滾趴】</h3>
+      <p class="case-subtitle">高雄漢神巨蛋 · 18:00–21:00<br>工作人員版 + 主持人版 + 音控版</p>
+      <div class="case-tags">
+        <span class="case-tag">大型活動</span><span class="case-tag">企劃統籌</span>
+        <span class="case-tag">流程設計</span><span class="case-tag">現場執行</span>
+      </div>
+      <div class="case-kpis">
+        <div class="kpi"><div class="kpi-num">300人</div><div class="kpi-label">活動規模</div></div>
+        <div class="kpi"><div class="kpi-num">全員嘉獎</div><div class="kpi-label">工作人員獲記嘉獎，歷年首次</div></div>
+        <div class="kpi"><div class="kpi-num">零加班</div><div class="kpi-label">企劃部唯一未加班（往年加班一週）</div></div>
+      </div>
+    </div>
+    <div class="case-content">
+      <div class="case-section">
+        <div class="case-section-title">核心亮點</div>
+        <div class="highlights">
+          <div class="highlight-card"><div class="highlight-icon">🎄</div><div class="highlight-title">主題發想與沉浸體驗</div><div class="highlight-body">提出「聖誕搖滾趴」主題，採購聖誕飾品放置每桌，讓員工入場即融入氣氛。</div></div>
+          <div class="highlight-card"><div class="highlight-icon">📊</div><div class="highlight-title">Excel 即時投票系統</div><div class="highlight-body">自主設計服裝造型比賽投票表單，搭配 QR Code，現場即時計票，參與熱度高。</div></div>
+          <div class="highlight-card"><div class="highlight-icon">🏷️</div><div class="highlight-title">抽獎防呆系統</div><div class="highlight-body">設計編號貼紙標示籤號（7-1 至 7-50），確保 300 人抽獎不多抽不少抽，歷年痛點一次解決。</div></div>
+          <div class="highlight-card"><div class="highlight-icon">🎵</div><div class="highlight-title">音控流程優化</div><div class="highlight-body">製作專屬音控版流程表，標明「主持人說 XX → 播音樂／停音樂」，解決歷年音控混亂問題。</div></div>
+        </div>
+      </div>
+      <div class="case-section">
+        <div class="case-section-title">負責範疇</div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="detail-dot"></div>完整活動企劃、主題訂製、三款流程手冊製作（工作人員版／主持人版／音控版）</div>
+          <div class="detail-item"><div class="detail-dot"></div>遊戲設計與道具採購（翻杯接球、佛祖保庇唷、骰子樂翻天）</div>
+          <div class="detail-item"><div class="detail-dot"></div>串場音樂選曲，為每個環節配對相應氛圍音樂</div>
+          <div class="detail-item"><div class="detail-dot"></div>獎金預算分配、紅包袋及獎盃發包製作</div>
+          <div class="detail-item"><div class="detail-dot"></div>人員配置表、備品清單製作，工作人員分工明確至每樣道具</div>
+          <div class="detail-item"><div class="detail-dot"></div>廁所不足問題：即時規劃男女分流動線</div>
+          <div class="detail-item"><div class="detail-dot"></div>課程時間缺休息：主動通知提早 10 分鐘下課</div>
+        </div>
+      </div>
+      <div class="result-band"><strong>成果：</strong>活動圓滿結束，全體工作人員獲記嘉獎，為公司舉辦多年尾牙以來首次（往年曾有工作人員被記過）。企劃部更是歷年來唯一未加班的一次，靠的是提前一週完成所有前置準備。</div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-meta">
+      <div class="case-index">02</div>
+      <h3 class="case-title">第一屆<br>金牌主持營</h3>
+      <p class="case-subtitle">石川傳媒集團 7F · 2026/04/25–26<br>首屆，無前例可循，一人主導</p>
+      <div class="case-tags">
+        <span class="case-tag">課程活動</span><span class="case-tag">行銷企劃</span>
+        <span class="case-tag">短影音製作</span><span class="case-tag">AI 內容創作</span><span class="case-tag">全程統籌</span>
+      </div>
+      <div class="case-kpis">
+        <div class="kpi"><div class="kpi-num">31人</div><div class="kpi-label">付費學員</div></div>
+        <div class="kpi"><div class="kpi-num">10萬</div><div class="kpi-label">兩日課程利潤</div></div>
+        <div class="kpi"><div class="kpi-num">14支+</div><div class="kpi-label">宣傳影片產出</div></div>
+      </div>
+    </div>
+    <div class="case-content">
+      <div class="case-section">
+        <div class="case-section-title">行銷策略｜前期</div>
+        <div class="highlights">
+          <div class="highlight-card"><div class="highlight-icon">🎬</div><div class="highlight-title">真人短影音 × 4 支</div><div class="highlight-body">搞笑反應篇、主持人現場直擊、早鳥優惠殺價篇、撒嬌舞版，針對不同受眾切入。</div></div>
+          <div class="highlight-card"><div class="highlight-icon">🤖</div><div class="highlight-title">AI 生成影音 × 10支+</div><div class="highlight-body">首屆素材不足，以 AI 創作主題曲、饒舌歌、媽媽的歌等，建立多元內容矩陣。</div></div>
+          <div class="highlight-card"><div class="highlight-icon">🎯</div><div class="highlight-title">三波行銷策略</div><div class="highlight-body">產學合作理念 → 師資陣容曝光 → 成果報導，三個月循序引導報名轉換。</div></div>
+          <div class="highlight-card"><div class="highlight-icon">📐</div><div class="highlight-title">8 平台客製化圖文</div><div class="highlight-body">為集團旗下各平台製作對應尺寸圖與專屬文案，非一稿複製，確保各平台最佳呈現。</div></div>
+        </div>
+      </div>
+      <div class="case-section">
+        <div class="case-section-title">籌備執行｜中期</div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="detail-dot"></div>重新撰寫完整活動企劃書與簽呈，建立跨部門工作分工表</div>
+          <div class="detail-item"><div class="detail-dot"></div>製作講師個人化行前通知（含停車動線圖、設備確認、勞務報酬流程、不可抗力條款）</div>
+          <div class="detail-item"><div class="detail-dot"></div>製作學員行前通知（分梯報到時間、交通路線圖、課程須知）</div>
+          <div class="detail-item"><div class="detail-dot"></div>自製退費申請書、肖像授權同意書等法務文件</div>
+          <div class="detail-item"><div class="detail-dot"></div>依年齡層與性別預先完成學員分組</div>
+          <div class="detail-item"><div class="detail-dot"></div>場地規劃：課桌椅、餐桌、報到區、禮物區、金句牆打卡互動區、講師休息區、垃圾分類、備用飲水</div>
+          <div class="detail-item"><div class="detail-dot"></div>兩日餐飲全程聯繫，提供雙窗口、說明送貨動線，活動前兩天逐一確認</div>
+          <div class="detail-item"><div class="detail-dot"></div>製作 To-do list 完整交接代理人，Line 文字版本再次彙整確保零遺漏</div>
+        </div>
+      </div>
+      <div class="case-section">
+        <div class="case-section-title">現場執行｜當日</div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="detail-dot"></div>負責講師接待、餐點接洽、全程拍攝紀錄</div>
+          <div class="detail-item"><div class="detail-dot"></div>隨時監控學員狀況、場控流程調度、人力分配</div>
+          <div class="detail-item"><div class="detail-dot"></div>頒獎流程未事先確認：當下即時與班導師協商、現場輸出前三名獎狀，無縫接軌</div>
+          <div class="detail-item"><div class="detail-dot"></div>為學員、講師、工作人員爭取伴手禮，照顧所有人</div>
+        </div>
+      </div>
+      <div class="case-section">
+        <div class="case-section-title">結案收尾｜後期</div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="detail-dot"></div>報支請款、講師勞務報酬單處理、廠商付款確認</div>
+          <div class="detail-item"><div class="detail-dot"></div>肖像同意書、簽到表掃描建檔，資料完整入庫</div>
+          <div class="detail-item"><div class="detail-dot"></div>整理學員錄音音檔、活動照片，剪輯活動紀錄影片 2–3 支</div>
+          <div class="detail-item"><div class="detail-dot"></div>主動協調工作人員補休安排，保障同仁權益</div>
+          <div class="detail-item"><div class="detail-dot"></div>建立完整 SOP，為第二屆奠定可複製基礎</div>
+        </div>
+      </div>
+      <div class="result-band"><strong>成果：</strong>首屆付費招募 <strong>31 位學員</strong>，兩日課程利潤 <strong>10 萬元</strong>。在無任何前例的情況下，從接手、企劃、行銷到落地全程一人主導，活動圓滿完成，並建立可供次屆直接沿用的完整活動 SOP。</div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="section-label">Core Competencies</div>
+  <h2 class="intro-title" style="margin-bottom:0">我能為你的團隊<span>帶來什麼</span></h2>
+  <div class="skills-grid">
+    <div class="skill-block"><div class="skill-block-icon">🧠</div><div class="skill-block-title">系統性思維</div><div class="skill-block-desc">從全局看見細節。廁所不夠、音控混亂、抽獎出錯——在問題發生前，我已想好解法。</div></div>
+    <div class="skill-block"><div class="skill-block-icon">🎬</div><div class="skill-block-title">內容創作力</div><div class="skill-block-desc">短影音腳本、AI 生成影音、各平台圖文文案，從創意到產出全程自主完成。</div></div>
+    <div class="skill-block"><div class="skill-block-icon">⚡</div><div class="skill-block-title">高效執行力</div><div class="skill-block-desc">活動前一週完成所有前置準備，帶領團隊零加班完成 300 人活動。</div></div>
+    <div class="skill-block"><div class="skill-block-icon">🤝</div><div class="skill-block-title">跨部門協調</div><div class="skill-block-desc">同時對接財務、電視部、節目部、客服、電商等 8+ 部門，統一窗口，清楚溝通。</div></div>
+    <div class="skill-block"><div class="skill-block-icon">🎯</div><div class="skill-block-title">行銷策略規劃</div><div class="skill-block-desc">三波宣傳策略、多平台內容矩陣、付費課程招募，從流量到轉換完整操作。</div></div>
+    <div class="skill-block"><div class="skill-block-icon">📋</div><div class="skill-block-title">文件與流程建立</div><div class="skill-block-desc">行前通知、退費申請書、肖像同意書、To-do list、SOP——讓組織運作有所依循。</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">鄭羽紋 Yuwun Cheng</div>
+  <div class="footer-copy">活動企劃統籌 · 高雄 · 2026</div>
+</footer>
+
+</body>
+</html>
