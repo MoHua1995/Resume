@@ -31,7 +31,7 @@
     color: var(--text);
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 400;
-    font-size: 20px; /* 內文大字級 */
+    font-size: 20px; 
     line-height: 1.8;
     overflow-x: hidden;
   }
@@ -39,7 +39,7 @@
   .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* 調整英雄區比例 */
+    grid-template-columns: 1.2fr 0.8fr;
     background: var(--bg2);
   }
 
@@ -48,13 +48,6 @@
     flex-direction: column;
     justify-content: center;
     padding: 60px 80px;
-  }
-
-  .hero-tag {
-    font-size: 16px;
-    letter-spacing: 4px;
-    color: var(--sage);
-    margin-bottom: 24px;
   }
 
   .hero-name {
@@ -80,9 +73,7 @@
     margin-bottom: 40px;
   }
 
-  .hero-stats { display: flex; gap: 40px; }
-  .stat-num { font-size: 44px; font-weight: 800; color: var(--sage); line-height: 1; }
-  .stat-label { font-size: 16px; color: var(--text-mute); margin-top: 4px; }
+  .stat-num { font-size: 44px; font-weight: 800; color: var(--sage); }
 
   .hero-right {
     display: flex;
@@ -92,7 +83,7 @@
   }
 
   .skill-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-  .pill { padding: 10px 18px; border: 1px solid rgba(138,120,96,0.3); border-radius: 100px; font-size: 16px; color: var(--warm); }
+  .pill { padding: 10px 18px; border: 1px solid rgba(138,120,96,0.3); border-radius: 100px; font-size: 16px; color: var(--warm); background: rgba(138,120,96,0.1); }
 
   .hero-quote {
     font-family: 'Noto Serif TC', serif;
@@ -107,9 +98,8 @@
     background: var(--bg3);
     padding: 100px 80px;
     display: grid;
-    grid-template-columns: 1fr 2fr; /* 確保左右並排 */
+    grid-template-columns: 1fr 2fr;
     gap: 60px;
-    align-items: center;
   }
 
   .intro-title { font-size: 44px; font-weight: 900; }
@@ -118,18 +108,17 @@
   .works { padding: 100px 80px; }
   .works-title { font-size: 68px; margin-bottom: 80px; font-family: 'DM Serif Display', serif; }
 
-  /* 修正案例排版：確保左右分欄 */
   .case {
     display: grid;
-    grid-template-columns: 400px 1fr; /* 固定左邊寬度，右邊自適應 */
-    gap: 60px;
+    grid-template-columns: 420px 1fr;
+    gap: 70px;
     margin-bottom: 120px;
     padding-bottom: 100px;
     border-bottom: 1px solid var(--border);
   }
 
   .case-meta { position: sticky; top: 50px; }
-  .case-index { font-size: 100px; font-weight: 800; color: rgba(122,140,122,0.1); line-height: 1; margin-bottom: -15px; }
+  .case-index { font-size: 100px; font-weight: 800; color: rgba(122,140,122,0.1); line-height: 1; }
   .case-title { font-size: 34px; font-weight: 900; margin-bottom: 12px; }
   .case-subtitle { font-size: 18px; color: var(--text-mute); margin-bottom: 24px; }
   
@@ -140,7 +129,7 @@
   .case-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
   .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .highlight-card { padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+  .highlight-card { padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; height: 100%; }
   .highlight-title { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
 
   .video-links { list-style: none; font-size: 18px; }
@@ -149,10 +138,11 @@
   .video-links a { color: var(--text-soft); text-decoration: none; border-bottom: 1px solid transparent; }
   .video-links a:hover { color: var(--rose); border-bottom-color: var(--rose); }
 
-  .detail-item { display: flex; gap: 14px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; font-size: 18px; margin-bottom: 10px; }
+  .detail-list { display: flex; flex-direction: column; gap: 10px; }
+  .detail-item { display: flex; gap: 14px; padding: 18px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; font-size: 18px; line-height: 1.7; }
   .detail-dot { width: 8px; height: 8px; background: var(--rose); border-radius: 50%; margin-top: 10px; flex-shrink: 0; }
 
-  .result-band { padding: 30px; background: linear-gradient(135deg, rgba(122,140,122,0.1), rgba(122,140,122,0.02)); border: 1px solid rgba(122,140,122,0.2); border-radius: 12px; font-size: 19px; }
+  .result-band { padding: 30px; background: linear-gradient(135deg, rgba(122,140,122,0.1), rgba(122,140,122,0.02)); border: 1px solid rgba(122,140,122,0.2); border-radius: 12px; font-size: 19px; line-height: 1.8; margin-top: 30px; }
 
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-top: 50px; }
   .skill-block { padding: 40px; background: var(--bg3); }
@@ -165,7 +155,6 @@
     .case { grid-template-columns: 1fr; }
     .hero { grid-template-columns: 1fr; }
     .intro-band { grid-template-columns: 1fr; }
-    .highlights { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -177,7 +166,7 @@
     <div class="hero-tag">Portfolio · 作品集 · 2025–2026</div>
     <div class="hero-name">Amity<br>Cheng</div>
     <span class="hero-name-zh">鄭羽紋</span>
-    <p class="hero-desc">企劃部副主管｜石川傳媒集團<br>從零到落地的全程型活動企劃統籌，<br>擅長在混亂中建立秩序，在限制中創造亮點。</p>
+    <p class="hero-desc">企劃部副主管｜石川傳媒集團<br>具備跨平台整合能力的內容專家，<br>擅長在混亂中建立秩序，在限制中創造亮點。</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">300+</div><div class="stat-label">人規模活動</div></div>
       <div class="stat"><div class="stat-num">10萬</div><div class="stat-label">課程利潤</div></div>
@@ -209,7 +198,7 @@
     <div class="case-meta">
       <div class="case-index">01</div>
       <h3 class="case-title">石川傳媒集團<br>年終尾牙晚會</h3>
-      <p class="case-subtitle">高雄漢神巨蛋 · 大型統籌專案</p>
+      <p class="case-subtitle">高雄漢神巨蛋 · 工作人員版+主持版+音控版</p>
       <div class="kpis">
         <div class="kpi"><div class="kpi-num">300人</div><div class="kpi-label">規模</div></div>
         <div class="kpi"><div class="kpi-num">全員嘉獎</div><div class="kpi-label">歷年首次全員記功</div></div>
@@ -220,14 +209,17 @@
       <div class="case-section-title">核心亮點</div>
       <div class="highlights">
         <div class="highlight-card"><div class="highlight-title">📊 Excel 即時投票</div><div class="highlight-body">QR Code 投票，現場即時計票，將選秀升級為數位互動體驗。</div></div>
-        <div class="highlight-card"><div class="highlight-title">🏷️ 抽獎防呆體系</div><div class="highlight-body">建立籤號標示，精準解決 300 人抽獎痛點，優化使用者體驗。</div></div>
+        <div class="highlight-card"><div class="highlight-title">🏷️ 抽獎防呆體系</div><div class="highlight-body">建立編號貼紙籤號標示（7-1至7-50），精準解決抽獎痛點。</div></div>
+        <div class="highlight-card"><div class="highlight-title">🎵 音控流程優化</div><div class="highlight-body">製作專屬流程表，明確標示音樂起點，解決歷年音控混亂。</div></div>
+        <div class="highlight-card"><div class="highlight-title">🎄 沉浸式氛圍</div><div class="highlight-body">提出「聖誕搖滾趴」主題，採購主題桌飾，強化員工共鳴。</div></div>
       </div>
       <div class="case-section-title">負責範疇</div>
       <div class="detail-list">
-        <div class="detail-item"><div class="detail-dot"></div>完整企劃、主題訂製、工作人員/主持人/音控三款手冊</div>
-        <div class="detail-item"><div class="detail-dot"></div>串場選曲氛圍設計、預算管控、紅包獎盃發包採購</div>
+        <div class="detail-item"><div class="detail-dot"></div>完整活動企劃、預算管控、紅包獎盃發包採購、串場選曲。</div>
+        <div class="detail-item"><div class="detail-dot"></div>人員配置表、備品清單製作，工作人員分工明確至每樣道具。</div>
+        <div class="detail-item"><div class="detail-dot"></div>危機應變：即時規劃廁所動線分流、主動調整課程提早 10 分鐘下課。</div>
       </div>
-      <div class="result-band"><strong>成果：</strong>活動圓滿結束，企劃部達成歷年唯一未加班紀錄，獲全員嘉獎認可。</div>
+      <div class="result-band"><strong>成果：</strong>活動圓滿結束，企劃部達成歷年唯一未加班紀錄。提前一週完成前置，獲全員嘉獎認可（往年曾有記過紀錄）。</div>
     </div>
   </div>
 
@@ -238,54 +230,45 @@
       <h3 class="case-title">第一屆<br>金牌主持營</h3>
       <p class="case-subtitle">首屆零基礎，全通路整合行銷</p>
       <div class="kpis">
-        <div class="kpi"><div class="kpi-num">31人</div><div class="kpi-label">轉化</div></div>
-        <div class="kpi"><div class="kpi-num">10萬</div><div class="kpi-label">淨利</div></div>
-        <div class="kpi"><div class="kpi-num">14支+</div><div class="kpi-label">影音內容</div></div>
+        <div class="kpi"><div class="kpi-num">31人</div><div class="kpi-label">付費學員轉化</div></div>
+        <div class="kpi"><div class="kpi-num">10萬</div><div class="kpi-label">兩日課程利潤</div></div>
+        <div class="kpi"><div class="kpi-num">14支+</div><div class="kpi-label">數位影音內容</div></div>
       </div>
     </div>
     <div class="case-content">
-      <div class="case-section-title">數位內容矩陣</div>
+      <div class="case-section-title">數位內容矩陣與行銷</div>
       <div class="highlights">
         <div class="highlight-card">
-          <div class="highlight-title">🎬 真人實拍</div>
+          <div class="highlight-title">🎬 真人實拍系列</div>
           <ul class="video-links">
-            <li><a href="https://www.facebook.com/share/r/1B46MHnELi/" target="_blank">說話的藝術 (幽默反應)</a></li>
+            <li><a href="https://www.facebook.com/share/r/1B46MHnELi/" target="_blank">說話的藝術 (幽默反應篇)</a></li>
             <li><a href="https://www.facebook.com/share/r/1H2kvp6LND/" target="_blank">主持人現場直擊宣導</a></li>
-            <li><a href="https://www.facebook.com/share/r/1DYNPcCNpr/" target="_blank">早鳥價創意殺價篇</a></li>
+            <li><a href="https://www.facebook.com/share/r/1DYNPcCNpr/" target="_blank">早鳥價創意殺價篇</a> | <a href="https://www.facebook.com/share/r/1B9xtKVSa4/" target="_blank">撒嬌舞版</a></li>
           </ul>
         </div>
         <div class="highlight-card">
-          <div class="highlight-title">🤖 AI 數位創意</div>
+          <div class="highlight-title">🤖 AI 數位創意系列</div>
           <ul class="video-links">
             <li><a href="https://www.facebook.com/reel/865538553116677" target="_blank">#品牌主題曲</a> | <a href="https://www.facebook.com/share/r/1CZsMJKnh3/" target="_blank">#饒舌版</a></li>
-            <li><a href="https://www.facebook.com/reel/1419554226493095" target="_blank">#主持人的一生</a></li>
-            <li><a href="https://www.facebook.com/share/r/1JAV8dWBmf/" target="_blank">#AI vs 真人配音</a></li>
+            <li><a href="https://www.facebook.com/reel/1419554226493095" target="_blank">#主持人的一生</a> | <a href="https://www.facebook.com/reel/1230825629202418" target="_blank">#阿嬤的拉低歐</a></li>
+            <li><a href="https://www.facebook.com/share/v/1ChVn4qzvS/" target="_blank">#廣播節</a> | <a href="https://www.facebook.com/share/v/1CbGTa1yYV/" target="_blank">#枯萎蛻變</a></li>
+            <li><a href="https://www.facebook.com/share/r/1JAV8dWBmf/" target="_blank">#AI vs 真人配音</a> | <a href="https://www.facebook.com/share/r/18aUb9hbUS/" target="_blank">#媽媽的歌</a></li>
           </ul>
         </div>
       </div>
-      <div class="case-section-title">通路整合與 SOP</div>
+      <div class="case-section-title">全通路整合與籌備執行</div>
       <div class="detail-list">
-        <div class="detail-item"><div class="detail-dot"></div>對接陪你購、I-Panny 等 8+ 平台，提供客製化文案與素材。</div>
-        <div class="detail-item"><div class="detail-dot"></div>建立講師/學員行前通知與法務文件，確保專案可重複執行。</div>
+        <div class="detail-item"><div class="detail-dot"></div><strong>通路整合：</strong>對接陪你購、番薯電視台等 8+ 平台，提供客製尺寸圖文與電台插播廣告。</div>
+        <div class="detail-item"><div class="detail-dot"></div><strong>行銷工具：</strong>設計「線上心理測驗」問卷引流，開發高雄學校與社區開發。</div>
+        <div class="detail-item"><div class="detail-dot"></div><strong>籌備管理：</strong>法務文件（退費、肖像同意書）、講師個人化行前通知（含停車/勞務報酬流程）。</div>
+        <div class="detail-item"><div class="detail-dot"></div><strong>現場執行：</strong>講師接待、兩日餐飲聯繫（雙窗口確認）、場控、現場輸前三名獎狀解決頒獎突發。</div>
+        <div class="detail-item"><div class="detail-dot"></div><strong>結案收尾：</strong>報支請款、建立 SOP 檔案庫、剪輯活動紀錄、協調工作人員補休保障權益。</div>
       </div>
-      <div class="result-band"><strong>成果：</strong>首屆達成 31 位報名與 10 萬淨利，建立完整可複製的活動 SOP。</div>
+      <div class="result-band"><strong>成果：</strong>首屆達成 31 位學員報名與 10 萬淨利。建立完整可複製 SOP，為集團奠定穩定課程模式。</div>
     </div>
   </div>
 </section>
 
-  <section class="skills-section">
-  <div class="section-label">Core Competencies</div>
-  <h2 class="intro-title" style="margin-bottom:0">我能為你的團隊<span>帶來什麼</span></h2>
-  <div class="skills-grid">
-    <div class="skill-block"><div class="skill-block-icon">📈</div><div class="skill-block-title">數位內容變現</div><div class="skill-block-desc">擅長將生硬課程或產品，轉化為具備分享價值的影音與圖文，達成實際轉化收益。</div></div>
-    <div class="skill-block"><div class="skill-block-icon">🎬</div><div class="skill-block-title">AI 素材產製力</div><div class="skill-block-desc">熟練運用 AI 音樂與影像工具，打破素材限制，極大化內容產能與社群傳播力。</div></div>
-    <div class="skill-block"><div class="skill-block-icon">⚡</div><div class="skill-block-title">高效專案統籌</div><div class="skill-block-desc">具備 8+ 部門對接經驗，擅長建立標準作業流程（SOP），達成零加班的高品質執行。</div></div>
-    <div class="skill-block"><div class="skill-block-icon">🎯</div><div class="skill-block-title">全通路行銷邏輯</div><div class="skill-block-desc">從傳統電台、社群媒體到電商銷售平台，具備客製化素材配置與策略規劃能力。</div></div>
-    <div class="skill-block"><div class="skill-block-icon">📋</div><div class="skill-block-title">風險與行政管理</div><div class="skill-block-desc">法務文件起草、預算管控、危機應變處理，確保每個環節都符合「面面俱到」的標準。</div></div>
-    <div class="skill-block"><div class="skill-block-icon">🤝</div><div class="skill-block-title">數位互動設計</div><div class="skill-block-desc">能設計心理測驗、即時投票系統等互動勾子，提升品牌與粉絲間的數位互動熱度。</div></div>
-  </div>
-</section>
-  
 <footer>
   <div class="footer-name">Amity Cheng｜整合行銷企劃統籌</div>
   <div class="footer-copy">高雄 · 2026</div>
